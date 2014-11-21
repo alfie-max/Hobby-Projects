@@ -18,3 +18,9 @@ till then.
 Exit using --> `Ctrl + C`
 
 On exit final summary shows how many mails were sent in total.
+
+
+FizzBuzz
+--------
+
+Single Line Solution to FizzBuzz

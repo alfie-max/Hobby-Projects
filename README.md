@@ -24,3 +24,13 @@ FizzBuzz
 --------
 
 Single Line Solution to FizzBuzz
+
+
+Replace Divisible Integers
+--------------------------
+
+The function takes in a list and returns a new list where every
+integer divisible by 3 is replaced by -1, every integer divisible by 5
+is replaced by -2, and every integer divisible by both 3 and 5 is
+replaced by -3. Other integers are left unchanged. And all
+non-integers are dropped.

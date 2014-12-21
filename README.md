@@ -34,3 +34,8 @@ integer divisible by 3 is replaced by -1, every integer divisible by 5
 is replaced by -2, and every integer divisible by both 3 and 5 is
 replaced by -3. Other integers are left unchanged. And all
 non-integers are dropped.
+
+Prime Number List
+-----------------
+
+Return a list of prime numbers within the given limit.

@@ -15,8 +15,8 @@ loop do
       system(command)
     end
     sleep(5)
-  rescue Exception => e
-    message = "An exception was raised, Will retry after sometime"
+  rescue Exception => error
+    message = "Failed to fetch the score:  #{error}"
     command = 'notify-send ' + '"' + message + '"'
     system(command)
     sleep(15)

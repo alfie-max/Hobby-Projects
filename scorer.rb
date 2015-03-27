@@ -20,6 +20,5 @@ loop do
     command = 'notify-send ' + '"' + message + '"'
     system(command)
     sleep(15)
-    retry
   end
 end

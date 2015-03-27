@@ -27,7 +27,7 @@ url = "http://static.cricinfo.com/rss/livescores.xml"
 begin
   loop do
     open_url = open(url)
-    if open_url.status[0].to_i == 200
+    if open_url.status.first == '200'
       data = Nokogiri::XML(open_url.read)
       desc = data.xpath('//description')
       notify desc[1].content

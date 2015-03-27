@@ -5,8 +5,8 @@ require 'nokogiri'
 
 url = "http://static.cricinfo.com/rss/livescores.xml"
 
-loop do
-  begin
+begin
+  loop do
     open_url = open(url)
     if open_url.status[0].to_i == 200
       data = Nokogiri::XML(open_url.read)
@@ -15,10 +15,17 @@ loop do
       system(command)
     end
     sleep(5)
-  rescue Exception => error
-    message = "Failed to fetch the score:  #{error}"
-    command = 'notify-send ' + '"' + message + '"'
+  end
+rescue SystemExit, Interrupt
+  puts "\b\bBye Bye... See you for the next match"
+rescue Exception => error
+  message = "Failed to fetch the score:  #{error}"
+  command = 'notify-send ' + '"' + message + '"'
+  begin
     system(command)
     sleep(15)
+    retry
+  rescue SystemExit, Interrupt
+    puts "\b\bBye Bye... See you for the next match"
   end
 end

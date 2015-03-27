@@ -5,7 +5,7 @@ Some fun and educational projects i do in my pastime
 
 
 Mail Bomb
---------- 
+---------
 
 Mail Bomb Application using Gmail Server
 
@@ -39,3 +39,9 @@ Prime Number List
 -----------------
 
 Return a list of prime numbers within the given limit.
+
+Cricket Scorer
+--------------
+
+Produces notification on linux systems on latest cricket scores every
+5 seconds

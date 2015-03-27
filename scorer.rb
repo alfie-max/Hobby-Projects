@@ -12,11 +12,11 @@ def byebye
   puts "\b\bBye Bye... See you for the next match"
 end
 
-def take_a_break(seconds)
+def take_a_break(seconds, error=false)
   begin
     sleep(seconds)
   rescue SystemExit, Interrupt
-    byebye
+    byebye if error
     raise SystemExit
   end
 end
@@ -39,6 +39,6 @@ rescue SystemExit, Interrupt
 rescue Exception => error
   err_msg = "Failed to fetch the score:  #{error}"
   notify err_msg
-  take_a_break 15
+  take_a_break(15, true)
   retry
 end

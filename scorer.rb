@@ -3,6 +3,11 @@
 require 'open-uri'
 require 'nokogiri'
 
+break_interval = {
+  'ok' => 5,
+  'error' => 15
+}
+
 def get_score(url)
   loop do
     open_url = open(url)
@@ -11,7 +16,7 @@ def get_score(url)
       desc = data.xpath('//description')
       return desc[1].content
     end
-    take_a_break 10
+    take_a_break break_interval['error']
   end
 end
 
@@ -40,13 +45,12 @@ begin
   loop do
     score = get_score(url)
     notify score if score
-    take_a_break 5
+    take_a_break break_interval['ok']
   end
 rescue SystemExit, Interrupt
   byebye
 rescue Exception => error
-  err_msg = "Failed to fetch the score:  #{error}"
-  notify err_msg
-  take_a_break(15, true)
+  notify "Failed to fetch the score:  #{error}"
+  take_a_break(break_interval['error'], true)
   retry
 end

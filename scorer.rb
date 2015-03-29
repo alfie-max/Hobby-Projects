@@ -3,13 +3,21 @@
 require 'open-uri'
 require 'nokogiri'
 
+def get_score(url)
+  loop do
+    open_url = open(url)
+    if open_url.status.last == 'OK'
+      data = Nokogiri::XML(open_url.read)
+      desc = data.xpath('//description')
+      return desc[1].content
+    end
+    take_a_break 10
+  end
+end
+
 def notify(message)
   command = 'notify-send ' + '"' + message + '"'
   system(command)
-end
-
-def byebye
-  puts "\b\bBye Bye... See you for the next match"
 end
 
 def take_a_break(seconds, error=false)
@@ -21,17 +29,17 @@ def take_a_break(seconds, error=false)
   end
 end
 
+def byebye
+  puts "\b\bBye Bye... See you for the next match"
+end
+
 
 url = "http://static.cricinfo.com/rss/livescores.xml"
 
 begin
   loop do
-    open_url = open(url)
-    if open_url.status.first == '200'
-      data = Nokogiri::XML(open_url.read)
-      desc = data.xpath('//description')
-      notify desc[1].content
-    end
+    score = get_score(url)
+    notify score if score
     take_a_break 5
   end
 rescue SystemExit, Interrupt

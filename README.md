@@ -45,3 +45,9 @@ Cricket Scorer
 
 Produces notification on linux systems on latest cricket scores every
 5 seconds
+
+Keyword Transposition Cipher
+----------------------------
+
+Pass in the keyword and the ciphertext via command line and see it
+decrypted

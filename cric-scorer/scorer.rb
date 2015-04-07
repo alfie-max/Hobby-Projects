@@ -43,9 +43,13 @@ end
 url = "http://static.cricinfo.com/rss/livescores.xml"
 
 begin
+  last_score = nil
   loop do
     score = get_score(url)
-    notify score if score
+    if score and score != last_score
+      notify score
+      last_score = score
+    end
     take_a_break for_interval['ok']
   end
 rescue SystemExit, Interrupt

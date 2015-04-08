@@ -3,6 +3,11 @@
 key = ARGV[0]
 cipher = ARGV[1]
 
+if !(key and cipher)
+  puts 'Please provide required fields'
+  exit
+end
+
 key_chars = key.chars.uniq
 all_chars = key_chars + (('A'..'Z').to_a - key_chars)
 

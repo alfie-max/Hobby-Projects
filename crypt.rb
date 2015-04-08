@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-key = ARGV[0]
-cipher = ARGV[1]
+key = ARGV[0].upcase
+cipher = ARGV[1].upcase
 
 if !(key and cipher)
   puts 'Please provide required fields'

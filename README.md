@@ -51,3 +51,5 @@ Keyword Transposition Cipher
 
 Pass in the keyword and the ciphertext via command line and see it
 decrypted
+
+Imlemented In Ruby (crypt.rb)

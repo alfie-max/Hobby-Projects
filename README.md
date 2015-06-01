@@ -53,3 +53,10 @@ Pass in the keyword and the ciphertext via command line and see it
 decrypted
 
 Imlemented In Ruby (crypt.rb)
+
+
+Page Scraper
+------------
+
+A ruby script that returns a hash containing title, description and
+image of a given url

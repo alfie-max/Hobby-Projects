@@ -60,3 +60,9 @@ Page Scraper
 
 A ruby script that returns a hash containing title, description and
 image of a given url
+
+
+One Liners
+----------
+
+Several One line ruby codes
